@@ -1,0 +1,145 @@
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #111;
+  border-radius: 50px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 50px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #ccc;
+}
+
+.slider {
+  position: relative;
+  /*width: 100vw;
+  height: fit-content;*/
+  margin: 0 3%;
+  max-height: 80vh;
+  width: fit-content;
+  height: fit-content;
+  /*background: #555;*/
+  background: transparent;
+  overflow-x: scroll;
+  border-radius: 20px;
+  box-shadow: -3px 3px 20px rgba(0,0,0,1);
+  display: flex;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.slider-control {
+  position: absolute;
+  top: 40%;
+  width: 80px;
+  height: 80px;
+  margin: 20px;
+  background-color: #76C9C1;
+  color: white;
+  font-size: 3rem;
+  text-align: center;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.slider-control span {
+  z-index: 2;
+  pointer-events: none;
+  user-select: none;
+  webkit-user-select: none;
+}
+
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 20px;
+
+}
+
+.slider-control::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
+  background-color: #40A097;
+  transform: scale(0);
+  z-index: 1;
+}
+
+.slider-control:hover::before {
+  transition: 0.5s;
+  transform: scale(1.2);
+}
+
+.item-change-animation {
+  animation: item-change-animation 2s;
+}
+
+.slider-item {
+  width: fit-content;
+  height: fit-content;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  scroll-snap-align: start;
+}
+
+.slider-item-pic {
+  min-width: 350px;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 20px;
+}
+
+.slider-item-title {
+  max-width: 500px;
+  width: auto;
+  color: white;
+  font-family: Helvetica, Arial, sans-serif;/*'Anton', sans-serif*/
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+@keyframes item-change-animation {
+  0% {
+    z-index: 100;
+    transform: scale(1.2);
+    color: #40A097;
+    background-color: #40A097;
+  }
+  50% {
+    z-index: 100;
+    transform: scale(40);
+    color: #40A097;
+    background-color: #40A097;
+  }
+  100% {
+    z-index: 100;
+    transform: scale(1);
+    color: #40A097;
+    background-color: #40A097;
+  }
+}
